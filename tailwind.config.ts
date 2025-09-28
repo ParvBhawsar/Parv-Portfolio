@@ -85,23 +85,42 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in": "fade-in 0.6s ease-out",
-        "slide-up": "slide-up 0.6s ease-out",
-        "float": "float 3s ease-in-out infinite",
+        "fade-in": "fade-in 0.8s ease-out",
+        "slide-up": "slide-up 0.8s ease-out",
+        "float": "float 6s ease-in-out infinite",
+        "glow": "glow 2s ease-in-out infinite alternate",
+        "typing": "typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite",
+        "scale-pulse": "scale-pulse 2s ease-in-out infinite",
       },
       keyframes: {
         ...{
           "fade-in": {
-            "0%": { opacity: "0", transform: "translateY(20px)" },
+            "0%": { opacity: "0", transform: "translateY(30px)" },
             "100%": { opacity: "1", transform: "translateY(0)" },
           },
           "slide-up": {
-            "0%": { opacity: "0", transform: "translateY(40px)" },
+            "0%": { opacity: "0", transform: "translateY(50px)" },
             "100%": { opacity: "1", transform: "translateY(0)" },
           },
           "float": {
-            "0%, 100%": { transform: "translateY(0px)" },
-            "50%": { transform: "translateY(-10px)" },
+            "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
+            "50%": { transform: "translateY(-20px) rotate(180deg)" },
+          },
+          "glow": {
+            "0%": { boxShadow: "0 0 20px hsl(var(--accent) / 0.2)" },
+            "100%": { boxShadow: "0 0 40px hsl(var(--accent) / 0.4), 0 0 60px hsl(var(--hero-gradient-start) / 0.2)" },
+          },
+          "typing": {
+            "0%": { width: "0" },
+            "100%": { width: "100%" },
+          },
+          "blink-caret": {
+            "0%, 50%": { borderColor: "transparent" },
+            "51%, 100%": { borderColor: "hsl(var(--accent))" },
+          },
+          "scale-pulse": {
+            "0%, 100%": { transform: "scale(1)" },
+            "50%": { transform: "scale(1.05)" },
           },
         }
       },
