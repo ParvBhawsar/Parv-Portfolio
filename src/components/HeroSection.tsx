@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ArrowDown, Sparkles, Code, TrendingUp, Crown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import portraitImage from '@/assets/parv-portrait.jpg';
+import profilePhoto from '@/assets/profile-photo.jpg';
 
 const HeroSection = () => {
   const [typedText, setTypedText] = useState('');
@@ -143,9 +143,9 @@ const HeroSection = () => {
               <div className="relative">
                 <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-gradient-to-r from-accent to-primary shadow-2xl animate-glow group-hover:scale-105 transition-transform duration-500">
                   <img 
-                    src={portraitImage} 
+                    src={profilePhoto} 
                     alt="Parv Bhawsar - Tech, Markets, Research & Chess" 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
                 

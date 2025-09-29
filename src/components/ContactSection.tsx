@@ -106,12 +106,16 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-background via-secondary/10 to-background relative overflow-hidden">
-      {/* Background Elements */}
+    <section id="contact" className="py-20 particle-bg bg-gradient-to-br from-background via-secondary/10 to-background relative overflow-hidden">
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="floating-orb !w-32 !h-32 !top-16 !right-20"></div>
-        <div className="floating-orb !w-24 !h-24 !bottom-24 !left-16"></div>
+        <div className="floating-orb !w-32 !h-32 !top-16 !right-20 animate-pulse-glow"></div>
+        <div className="floating-orb !w-24 !h-24 !bottom-24 !left-16 animate-glow"></div>
+        <div className="floating-orb !w-20 !h-20 !top-1/3 !right-1/3 animate-float"></div>
       </div>
+      
+      {/* Interactive gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-accent/5 via-transparent to-hero-gradient-end/5 opacity-70"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="space-y-20">
@@ -137,12 +141,12 @@ const ContactSection = () => {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Form - Takes 2 columns */}
             <div className="lg:col-span-2">
-              <Card className="glass-card border-accent/20 backdrop-blur-md">
+              <Card className="glass-card border-accent/20 backdrop-blur-md animate-glow">
                 <CardContent className="p-8">
                   <div className="space-y-8">
                     <div className="space-y-4">
                       <div className="flex items-center space-x-3">
-                        <MessageSquare className="h-6 w-6 text-accent" />
+                        <MessageSquare className="h-6 w-6 text-accent animate-pulse-glow" />
                         <h3 className="text-2xl font-bold text-primary">Send a Message</h3>
                       </div>
                       <div className="flex items-center space-x-4 text-sm text-muted-foreground">
@@ -242,7 +246,7 @@ const ContactSection = () => {
                 <h3 className="text-xl font-bold text-primary">Other Ways to Connect</h3>
                 <div className="space-y-4">
                   {contactInfo.map((contact, index) => (
-                    <Card key={index} className="group card-hover glass-card border-accent/20 backdrop-blur-md">
+                    <Card key={index} className="group card-hover glass-card border-accent/20 backdrop-blur-md animate-pulse-glow">
                       <CardContent className="p-6">
                         <a 
                           href={contact.href}
@@ -250,7 +254,7 @@ const ContactSection = () => {
                           target={contact.href.startsWith('http') ? '_blank' : undefined}
                           rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                         >
-                          <div className={`p-3 rounded-xl ${contact.color} group-hover:scale-110 transition-transform duration-300`}>
+                          <div className={`p-3 rounded-xl ${contact.color} group-hover:scale-110 transition-transform duration-300 animate-scale-pulse`}>
                             <contact.icon className="h-6 w-6" />
                           </div>
                           <div className="flex-1">

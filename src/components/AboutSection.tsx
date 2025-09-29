@@ -71,12 +71,16 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-background via-secondary/20 to-background relative overflow-hidden">
-      {/* Background Elements */}
+    <section id="about" className="py-20 particle-bg bg-gradient-to-br from-background via-secondary/20 to-background relative overflow-hidden">
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0 opacity-30">
-        <div className="floating-orb !w-32 !h-32 !top-10 !right-20"></div>
-        <div className="floating-orb !w-20 !h-20 !bottom-20 !left-10"></div>
+        <div className="floating-orb !w-32 !h-32 !top-10 !right-20 animate-pulse-glow"></div>
+        <div className="floating-orb !w-20 !h-20 !bottom-20 !left-10 animate-float"></div>
+        <div className="floating-orb !w-16 !h-16 !top-1/2 !right-1/3 animate-bounce-slow"></div>
       </div>
+      
+      {/* Gradient mesh overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/5 to-transparent opacity-50"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="space-y-20">
@@ -110,11 +114,11 @@ const AboutSection = () => {
             
             <div className="grid md:grid-cols-2 gap-8">
               {education.map((edu, index) => (
-                <Card key={index} className="group card-hover glass-card border-accent/20 backdrop-blur-md overflow-hidden">
+                <Card key={index} className="group card-hover glass-card border-accent/20 backdrop-blur-md overflow-hidden animate-pulse-glow">
                   <CardContent className="p-8">
                     <div className="space-y-6">
                       <div className="flex items-start justify-between">
-                        <div className={`p-4 rounded-2xl ${edu.color} group-hover:scale-110 transition-transform duration-300`}>
+                        <div className={`p-4 rounded-2xl ${edu.color} group-hover:scale-110 transition-transform duration-300 animate-shimmer`}>
                           <edu.icon className="h-8 w-8" />
                         </div>
                         <div className="text-right space-y-1">
@@ -190,10 +194,10 @@ const AboutSection = () => {
               </div>
 
               {/* Active Strength Details */}
-              <Card className="glass-card border-accent/30 backdrop-blur-md">
+              <Card className="glass-card border-accent/30 backdrop-blur-md animate-glow">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center space-x-4">
-                    <div className={`p-4 rounded-2xl ${strengths[activeStrength].color}`}>
+                    <div className={`p-4 rounded-2xl ${strengths[activeStrength].color} animate-scale-pulse`}>
                       {(() => {
                         const IconComponent = strengths[activeStrength].icon;
                         return <IconComponent className="h-8 w-8" />;
@@ -237,7 +241,7 @@ const AboutSection = () => {
               <p className="text-muted-foreground">Always expanding my knowledge horizon</p>
             </div>
             
-            <Card className="glass-card border-accent/20 backdrop-blur-md">
+            <Card className="glass-card border-accent/20 backdrop-blur-md animate-pulse-glow">
               <CardContent className="p-8">
                 <div className="grid sm:grid-cols-2 gap-8">
                   {exploringTopics.map((topic, index) => (
@@ -248,8 +252,11 @@ const AboutSection = () => {
                       </div>
                       <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
                         <div 
-                          className={`h-full ${topic.color} rounded-full transition-all duration-1000 ease-out`}
-                          style={{ width: `${topic.level}%` }}
+                          className={`h-full ${topic.color} rounded-full transition-all duration-1000 ease-out animate-shimmer`}
+                          style={{ 
+                            width: `${topic.level}%`,
+                            background: `linear-gradient(90deg, ${topic.color.replace('bg-', 'hsl(var(--')}, transparent, ${topic.color.replace('bg-', 'hsl(var(--')})`
+                          }}
                         />
                       </div>
                     </div>

@@ -90,7 +90,11 @@ export default {
         "float": "float 6s ease-in-out infinite",
         "glow": "glow 2s ease-in-out infinite alternate",
         "typing": "typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite",
-        "scale-pulse": "scale-pulse 2s ease-in-out infinite",
+        "scale-pulse": "scale-pulse 3s ease-in-out infinite",
+        "bounce-slow": "bounce 3s ease-in-out infinite",
+        "spin-slow": "spin 20s linear infinite",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "shimmer": "shimmer 2s ease-in-out infinite",
       },
       keyframes: {
         ...{
@@ -118,10 +122,24 @@ export default {
             "0%, 50%": { borderColor: "transparent" },
             "51%, 100%": { borderColor: "hsl(var(--accent))" },
           },
-          "scale-pulse": {
-            "0%, 100%": { transform: "scale(1)" },
-            "50%": { transform: "scale(1.05)" },
-          },
+           "scale-pulse": {
+             "0%, 100%": { transform: "scale(1)" },
+             "50%": { transform: "scale(1.05)" },
+           },
+           "pulse-glow": {
+             "0%, 100%": { 
+               boxShadow: "0 0 20px hsl(var(--accent) / 0.3)",
+               transform: "scale(1)" 
+             },
+             "50%": { 
+               boxShadow: "0 0 40px hsl(var(--accent) / 0.6), 0 0 60px hsl(var(--hero-gradient-start) / 0.4)",
+               transform: "scale(1.02)" 
+             },
+           },
+           "shimmer": {
+             "0%": { backgroundPosition: "-200% 0" },
+             "100%": { backgroundPosition: "200% 0" },
+           },
         }
       },
     },

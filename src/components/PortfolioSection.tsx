@@ -93,12 +93,16 @@ const PortfolioSection = () => {
   const currentProject = projects[selectedProject];
 
   return (
-    <section id="portfolio" className="py-20 bg-gradient-to-br from-background via-secondary/10 to-background relative overflow-hidden">
-      {/* Background Elements */}
+    <section id="portfolio" className="py-20 particle-bg bg-gradient-to-br from-background via-secondary/10 to-background relative overflow-hidden">
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="floating-orb !w-28 !h-28 !top-16 !right-16"></div>
-        <div className="floating-orb !w-20 !h-20 !bottom-32 !left-12"></div>
+        <div className="floating-orb !w-28 !h-28 !top-16 !right-16 animate-spin-slow"></div>
+        <div className="floating-orb !w-20 !h-20 !bottom-32 !left-12 animate-pulse-glow"></div>
+        <div className="floating-orb !w-24 !h-24 !top-1/2 !left-1/4 animate-bounce-slow"></div>
       </div>
+      
+      {/* Dynamic gradient mesh */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-hero-gradient-start/10 opacity-60"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="space-y-20">
@@ -121,7 +125,7 @@ const PortfolioSection = () => {
 
           {/* Project Selector */}
           <div className="flex justify-center">
-            <div className="flex gap-4 p-2 glass-card rounded-2xl backdrop-blur-md">
+            <div className="flex gap-4 p-2 glass-card rounded-2xl backdrop-blur-md animate-glow">
               {projects.map((project, index) => (
                 <Button
                   key={index}
@@ -129,7 +133,7 @@ const PortfolioSection = () => {
                   onClick={() => setSelectedProject(index)}
                   className={`flex items-center space-x-3 px-6 py-4 transition-all duration-300 ${
                     selectedProject === index
-                      ? "hero-gradient text-white shadow-lg"
+                      ? "hero-gradient text-white shadow-lg animate-pulse-glow"
                       : "hover:bg-accent/10 text-muted-foreground hover:text-accent"
                   }`}
                 >
@@ -144,11 +148,11 @@ const PortfolioSection = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Project Details */}
             <div className="space-y-8">
-              <Card className="glass-card border-accent/20 backdrop-blur-md overflow-hidden">
+              <Card className="glass-card border-accent/20 backdrop-blur-md overflow-hidden animate-glow">
                 <CardContent className="p-8 space-y-6">
                   {/* Header */}
                   <div className="flex items-start justify-between">
-                    <div className={`p-4 rounded-2xl ${currentProject.color.split(' ')[0]}/20`}>
+                    <div className={`p-4 rounded-2xl ${currentProject.color.split(' ')[0]}/20 animate-scale-pulse`}>
                       <currentProject.icon className={`h-10 w-10 ${currentProject.color.split(' ')[1]}`} />
                     </div>
                     <div className="flex flex-col gap-2">
@@ -231,10 +235,10 @@ const PortfolioSection = () => {
             {/* Features & Metrics */}
             <div className="space-y-8">
               {/* Key Features */}
-              <Card className="glass-card border-accent/20 backdrop-blur-md">
+              <Card className="glass-card border-accent/20 backdrop-blur-md animate-pulse-glow">
                 <CardContent className="p-8 space-y-6">
                   <h4 className="text-xl font-bold text-primary flex items-center">
-                    <Zap className="h-5 w-5 mr-2 text-accent" />
+                    <Zap className="h-5 w-5 mr-2 text-accent animate-scale-pulse" />
                     Key Features
                   </h4>
                   <ul className="space-y-3">
@@ -249,10 +253,10 @@ const PortfolioSection = () => {
               </Card>
 
               {/* Project Metrics */}
-              <Card className="glass-card border-accent/20 backdrop-blur-md">
+              <Card className="glass-card border-accent/20 backdrop-blur-md animate-glow">
                 <CardContent className="p-8 space-y-6">
                   <h4 className="text-xl font-bold text-primary flex items-center">
-                    <TrendingUp className="h-5 w-5 mr-2 text-accent" />
+                    <TrendingUp className="h-5 w-5 mr-2 text-accent animate-bounce-slow" />
                     Project Metrics
                   </h4>
                   <div className="grid grid-cols-2 gap-6">

@@ -128,12 +128,16 @@ const WorkSection = () => {
   ];
 
   return (
-    <section id="work" className="py-20 relative overflow-hidden">
-      {/* Background Elements */}
+    <section id="work" className="py-20 particle-bg relative overflow-hidden">
+      {/* Enhanced Background Elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="floating-orb !w-24 !h-24 !top-20 !right-10"></div>
-        <div className="floating-orb !w-16 !h-16 !bottom-40 !left-20"></div>
+        <div className="floating-orb !w-24 !h-24 !top-20 !right-10 animate-glow"></div>
+        <div className="floating-orb !w-16 !h-16 !bottom-40 !left-20 animate-pulse-glow"></div>
+        <div className="floating-orb !w-20 !h-20 !top-1/3 !left-1/3 animate-float"></div>
       </div>
+      
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-accent/5 to-background opacity-80"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="space-y-20">
@@ -180,12 +184,12 @@ const WorkSection = () => {
             {filteredExperiences.map((exp, index) => (
               <Card 
                 key={index} 
-                className={`group card-hover glass-card backdrop-blur-md border-2 ${exp.color} overflow-hidden relative`}
+                className={`group card-hover glass-card backdrop-blur-md border-2 ${exp.color} overflow-hidden relative animate-pulse-glow`}
               >
                 <CardContent className="p-6 space-y-6">
                   {/* Header */}
                   <div className="flex items-start justify-between">
-                    <div className={`p-4 rounded-2xl ${exp.color.split(' ')[0]}/20 group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`p-4 rounded-2xl ${exp.color.split(' ')[0]}/20 group-hover:scale-110 transition-transform duration-300 animate-scale-pulse`}>
                       <exp.icon className={`h-8 w-8 ${exp.color.split(' ')[1]}`} />
                     </div>
                     <Badge 
@@ -262,13 +266,13 @@ const WorkSection = () => {
           {/* Enhanced Stats */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <Card key={index} className="glass-card border-accent/20 backdrop-blur-md text-center group">
+              <Card key={index} className="glass-card border-accent/20 backdrop-blur-md text-center group animate-pulse-glow">
                 <CardContent className="p-8 space-y-4">
-                  <div className="mx-auto w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="mx-auto w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 animate-glow">
                     <stat.icon className="h-8 w-8 text-accent" />
                   </div>
                   <div className="space-y-2">
-                    <div className="text-4xl font-bold text-gradient">
+                    <div className="text-4xl font-bold text-gradient animate-shimmer">
                       {stat.value}
                     </div>
                     <p className="text-muted-foreground font-medium">
