@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -86,16 +87,38 @@ const ContactSection = () => {
 
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    toast({
-      title: "Message Sent Successfully! 🚀",
-      description: "Thank you for reaching out. I'll get back to you within 24 hours.",
-    });
-    
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject || 'New Contact Form Message',
+        message: formData.message,
+        to_name: 'Parv Bhawsar',
+      };
+
+      await emailjs.send(
+        'service_u3jvzi2', // Service ID
+        'template_ds8ukuu', // Template ID
+        templateParams,
+        'FPiDjc8C8yeYEhKxP' // Public Key
+      );
+      
+      toast({
+        title: "Message Sent Successfully! 🚀",
+        description: "Thank you for reaching out. I'll get back to you within 24 hours.",
+      });
+      
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Failed to Send Message",
+        description: "There was an error sending your message. Please try again or contact me directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
