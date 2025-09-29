@@ -194,10 +194,7 @@ const AboutSection = () => {
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center space-x-4">
                     <div className={`p-4 rounded-2xl ${strengths[activeStrength].color}`}>
-                      {(() => {
-                        const IconComponent = strengths[activeStrength].icon;
-                        return <IconComponent className="h-8 w-8" />;
-                      })()}
+                      <strengths[activeStrength].icon className="h-8 w-8" />
                     </div>
                     <div>
                       <h4 className="text-2xl font-bold text-primary">
